@@ -2,7 +2,7 @@ import streamlit as st
 import anthropic
 import os
 
-os.environ["ANTHROPIC_API_KEY"] = "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"  # Replace with your actual key
+os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
 
 PROPERTY_INFO = """
 You are a helpful assistant that replies to guest inquiries for a vacation villa rental.
