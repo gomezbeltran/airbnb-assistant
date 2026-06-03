@@ -88,6 +88,4 @@ if st.button("Generate Reply", type="primary"):
         with st.spinner("Generating reply..."):
             reply = get_reply(inquiry)
         st.success("Reply ready! Copy it and paste into Airbnb.")
-        st.markdown("**Your Reply:**")
-        st.markdown(reply)
-        st.text_area("Copy this reply", value=reply, height=300)
+        st.text_area("Your Reply", value=reply, height=300)
