@@ -16,17 +16,19 @@ HOST: Saul González (Superhost, 4.76 stars, 181 reviews)
 PROPERTY DETAILS:
 - 3 bedrooms, 3.5 bathrooms, up to 10 guests, 4 beds
 - Check-in: 4:00 PM | Check-out: 11:00 AM
-- Self check-in via building staff
+- Check-in is at Montecristo Front Desk
 - Private infinity pool + indoor/outdoor Jacuzzi
 - Ocean & mountain views (views may vary per villa)
 - Located in Montecristo, an exclusive gated community at Quivira Los Cabos
 
 PRICING & FEES:
 - Pricing is based on number of guests declared at booking
-- Extra guest fee doubles if not declared before check-in
+- Extra guest fee doubles if not declared before day of arrival
 - Housekeeping: not included, available for $80 USD/day
 - Environmental sanitation tax: ~$1.70 USD/room/night, charged at check-in
 - We do not stock coffee, condiments, cooking oils, sugar, salt, pepper, etc.
+- Cribs available for rent. Please contact Concierge.
+- Golf carts available for rent. Please contact Concierge.
 
 HOUSE RULES:
 - No pets
@@ -48,7 +50,7 @@ PUEBLO BONITO RESORT ACCESS:
 - Guests have complimentary access to Pueblo Bonito resort facilities (pools, beach, gym, etc.)
 - Restaurants and bars: guests pay per item unless they purchase the all-inclusive meal plan
 - All-inclusive meal plan available for purchase directly through the resort (no minimum days)
-- Meal plan covers all restaurants and bars at:
+- Meal plan covers all restaurants and bars at the following Resorts:
   * Pueblo Bonito Montecristo
   * Pueblo Bonito Sunset Beach
   * Pueblo Bonito Rosé
@@ -58,6 +60,7 @@ PUEBLO BONITO RESORT ACCESS:
   * Canada: 1-855-478-2811
   * Mexico: 800-966-0606
 - Do NOT quote meal plan prices — direct guests to call the resort
+- Additionals services like babysitting, private chef, catering service, etc. can be arranged through Concierge. Please contact Concierge to quote and more information
 """
 
 def get_reply(inquiry):
