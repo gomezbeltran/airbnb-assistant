@@ -47,7 +47,7 @@ VILLA NOTES:
 - We manage villas in both Phase I and Phase II
 
 PUEBLO BONITO RESORT ACCESS:
-- Guests have complimentary access to Pueblo Bonito resort facilities (pools, beach, gym, etc.)
+- Guests have complimentary access to Pueblo Bonito Resorts facilities (pools, beach, gym, etc.)
 - Restaurants and bars: guests pay per item unless they purchase the all-inclusive meal plan
 - All-inclusive meal plan available for purchase directly through the resort (no minimum days)
 - Meal plan covers all restaurants and bars at the following Resorts:
