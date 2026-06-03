@@ -83,7 +83,7 @@ def get_reply(inquiry):
 def get_airbnb_emails():
     try:
         mail = imaplib.IMAP4_SSL("imap.gmail.com")
-        mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        mail.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD.replace(" ", ""))
         mail.select("inbox")
         
         # Search for unread Airbnb emails
