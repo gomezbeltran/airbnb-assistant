@@ -7,10 +7,8 @@ from email.header import decode_header
 
 # Debug secrets
 os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
-GMAIL_ADDRESS = st.secrets.get("GMAIL_ADDRESS", "NOT FOUND")
-GMAIL_APP_PASSWORD = st.secrets.get("GMAIL_APP_PASSWORD", "NOT FOUND")
-st.write(f"Email: '{GMAIL_ADDRESS}'")
-st.write(f"Password length: {len(GMAIL_APP_PASSWORD)}")
+GMAIL_ADDRESS = "quiviravr@gmail.com"
+GMAIL_APP_PASSWORD = "mojv nvsj mhmj prfr"
 
 PROPERTY_INFO = """
 You are a helpful assistant that replies to guest inquiries for a vacation villa rental.
