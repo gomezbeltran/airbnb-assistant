@@ -5,9 +5,7 @@ import imaplib
 import email
 from email.header import decode_header
 
-# Debug secrets
-st.write(st.secrets)
-# os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
+os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
 GMAIL_ADDRESS = "quiviravr@gmail.com"
 GMAIL_APP_PASSWORD = "mojv nvsj mhmj prfr"
 
