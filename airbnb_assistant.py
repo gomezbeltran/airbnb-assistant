@@ -131,9 +131,9 @@ def get_airbnb_emails():
         return f"Error: {str(e)}"
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Montecristo Villa Assistant", page_icon="🏡")
+st.set_page_config(page_title="Quivira Vacation Rentals - AI Assistant", page_icon="🏡")
 
-st.title("🏡 Montecristo Villa")
+st.title("🏡 Quivira Vacation Rentals")
 st.subheader("Airbnb Reply Assistant")
 
 tab1, tab2 = st.tabs(["✍️ Manual Reply", "📧 Email Inquiries"])
