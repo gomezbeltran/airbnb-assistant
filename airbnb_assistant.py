@@ -8,6 +8,8 @@ from email.header import decode_header
 os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
 GMAIL_ADDRESS = st.secrets["GMAIL_ADDRESS"]
 GMAIL_APP_PASSWORD = st.secrets["GMAIL_APP_PASSWORD"]
+TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = st.secrets["TELEGRAM_CHAT_ID"]
 
 PROPERTY_INFO = """
 You are a helpful assistant that replies to guest inquiries for a vacation villa rental.
@@ -79,6 +81,16 @@ def get_reply(inquiry):
     )
     return message.content[0].text
 
+def send_to_telegram(reply, subject):
+    import requests
+    message = f"📧 *New Airbnb Inquiry Reply*\n\n*Subject:* {subject}\n\n*Reply:*\n{reply}"
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    requests.post(url, data={
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": message,
+        "parse_mode": "Markdown"
+    })
+ 
 def get_airbnb_emails():
     try:
         mail = imaplib.IMAP4_SSL("imap.gmail.com")
@@ -187,3 +199,6 @@ with tab2:
             st.markdown("**Your Reply:**")
             st.markdown(reply)
             st.text_area("Copy this reply", value=reply, height=300)
+            if st.button("📱 Send to Telegram", key="telegram_btn"):
+                send_to_telegram(reply, selected_email['subject'])
+                st.success("✅ Reply sent to Telegram!")
