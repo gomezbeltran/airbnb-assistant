@@ -134,7 +134,7 @@ def get_airbnb_emails():
 st.set_page_config(page_title="Quivira Vacation Rentals - AI Assistant", page_icon="🏡")
 
 st.title("🏡 Quivira Vacation Rentals")
-st.subheader("Airbnb Reply Assistant")
+st.subheader("Airbnb Reply Agent 🤖")
 
 tab1, tab2 = st.tabs(["✍️ Manual Reply", "📧 Email Inquiries"])
 
