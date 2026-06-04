@@ -80,8 +80,6 @@ ASSISTANCE DURING YOUR STAY: If you have any question or concern during your sta
 In case you haven't yet book your Airport PickUp. You can still book it by visiting: https://www.pueblobonito.com/airport-transportation or calling 1-800-990-8250
 -There are both private and shared ride options.
 
-IMPORTANT REMINDERS:
-
 EXTRA GUEST CHARGE: Any guest added after the original booking has been made will incur an additional fee. Please make sure the number of people on your reservation corresponds to the total number of guests staying. All guests must be registered, and all applicable guest fees must be paid. The extra guest fee for guests added to the reservation after the booking is made is $50 USD a night per person. This cost will increase to $100 USD a night per person for additional guests added during or after check-in.
 
 EARLY CHECK-INS: You are welcome to head directly to the clubhouse to the reception desk at the time you arrive. We will not be able to confirm at any point whether the villa will be ready for early check in, regardless of the circumstances. We can only confirm that it will be ready at 4:00 p.m; however, if on the day of your check-in we should manage to have it ready earlier, we will be happy to let you in. Keep in mind that you are allowed to use the facilities at the clubhouse while you wait. Our team will also store your luggage and groceries until your villa is ready.
