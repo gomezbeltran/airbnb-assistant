@@ -193,30 +193,16 @@ with tab2:
         st.markdown(f"**Date:** {selected_email['date']}")
         st.markdown("**Message:**")
         st.text(selected_email['body'])
+
         if st.button("Generate Reply for Email", type="primary", key="email_reply_btn"):
             with st.spinner("Generating reply..."):
-                reply = get_reply(selected_email['body'])
+                st.session_state.generated_reply = get_reply(selected_email['body'])
+                st.session_state.reply_subject = selected_email['subject']
+
+        if st.session_state.generated_reply:
             st.markdown("**Your Reply:**")
-            st.markdown(reply)
-            st.text_area("Copy this reply", value=reply, height=300)
+            st.markdown(st.session_state.generated_reply)
+            st.text_area("Copy this reply", value=st.session_state.generated_reply, height=300)
             if st.button("📱 Send to Telegram", key="telegram_btn"):
-                send_to_telegram(reply, selected_email['subject'])
+                send_to_telegram(st.session_state.generated_reply, st.session_state.reply_subject)
                 st.success("✅ Reply sent to Telegram!")
-
-         if "generated_reply" not in st.session_state:
-             st.session_state.generated_reply = ""
-         if "reply_subject" not in st.session_state:
-             st.session_state.reply_subject = ""
-
-         if st.button("Generate Reply for Email", type="primary", key="email_reply_btn"):
-         with st.spinner("Generating reply..."):
-             st.session_state.generated_reply = get_reply(selected_email['body'])
-             st.session_state.reply_subject = selected_email['subject']
-
-         if st.session_state.generated_reply:
-             st.markdown("**Your Reply:**")
-             st.markdown(st.session_state.generated_reply)
-             st.text_area("Copy this reply", value=st.session_state.generated_reply, height=300)
-         if st.button("📱 Send to Telegram", key="telegram_btn"):
-             send_to_telegram(st.session_state.generated_reply, st.session_state.reply_subject)
-             st.success("✅ Reply sent to Telegram!")
