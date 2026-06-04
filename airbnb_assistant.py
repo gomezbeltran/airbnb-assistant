@@ -87,8 +87,11 @@ def get_airbnb_emails():
         mail.select("inbox")
         
         # Search for unread Airbnb emails
-        status, messages = mail.search(None, 'FROM', '"automated@airbnb.com"')
-        email_ids = messages[0].split()
+        status1, messages1 = mail.search(None, 'SUBJECT', '"FW: Inquiry"')
+        status2, messages2 = mail.search(None, 'SUBJECT', '"FW: Reservation"')
+        ids1 = messages1[0].split() if messages1[0] else []
+        ids2 = messages2[0].split() if messages2[0] else []
+        email_ids = ids1 + ids2
         
         # Get last 10 emails
         email_ids = email_ids[-10:] if len(email_ids) > 10 else email_ids
