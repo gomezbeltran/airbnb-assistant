@@ -168,10 +168,11 @@ with tab1:
 # --- Tab 2: Email Inquiries ---
 with tab2:
     st.markdown("Fetch your latest Airbnb inquiry emails and generate replies instantly.")
-    
-    if "emails" not in st.session_state:
-        st.session_state.emails = []
-    
+
+    for key, default in [("emails", []), ("generated_reply", ""), ("reply_subject", "")]:
+        if key not in st.session_state:
+            st.session_state[key] = default
+
     if st.button("Fetch Airbnb Emails", type="primary"):
         with st.spinner("Connecting to Gmail..."):
             emails = get_airbnb_emails()
@@ -181,6 +182,7 @@ with tab2:
             st.info("No Airbnb emails found.")
         else:
             st.session_state.emails = emails
+            st.session_state.generated_reply = ""
 
     if st.session_state.emails:
         emails = st.session_state.emails
@@ -199,7 +201,7 @@ with tab2:
                 st.session_state.generated_reply = get_reply(selected_email['body'])
                 st.session_state.reply_subject = selected_email['subject']
 
-        if st.session_state.generated_reply:
+        if st.session_state.get("generated_reply", ""):
             st.markdown("**Your Reply:**")
             st.markdown(st.session_state.generated_reply)
             st.text_area("Copy this reply", value=st.session_state.generated_reply, height=300)
