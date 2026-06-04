@@ -157,27 +157,34 @@ with tab1:
 # --- Tab 2: Email Inquiries ---
 with tab2:
     st.markdown("Fetch your latest Airbnb inquiry emails and generate replies instantly.")
+    
+    if "emails" not in st.session_state:
+        st.session_state.emails = []
+    
     if st.button("Fetch Airbnb Emails", type="primary"):
         with st.spinner("Connecting to Gmail..."):
             emails = get_airbnb_emails()
-        
         if isinstance(emails, str):
             st.error(emails)
         elif not emails:
             st.info("No Airbnb emails found.")
         else:
-            st.success(f"Found {len(emails)} emails!")
-            email_subjects = [f"{i+1}. {em['subject']}" for i, em in enumerate(emails)]
-            selected = st.selectbox("Select an email to reply to:", email_subjects)
-            idx = email_subjects.index(selected)
-            selected_email = emails[idx]
-            st.markdown(f"**From:** {selected_email['from']}")
-            st.markdown(f"**Date:** {selected_email['date']}")
-            st.markdown("**Message:**")
-            st.text(selected_email['body'])
-            if st.button("Generate Reply for Email", type="primary", key="email_reply_btn"):
-                with st.spinner("Generating reply..."):
-                    reply = get_reply(selected_email['body'])
-                st.markdown("**Your Reply:**")
-                st.markdown(reply)
-                st.text_area("Copy this reply", value=reply, height=300)
+            st.session_state.emails = emails
+
+    if st.session_state.emails:
+        emails = st.session_state.emails
+        st.success(f"Found {len(emails)} emails!")
+        email_subjects = [f"{i+1}. {em['subject']}" for i, em in enumerate(emails)]
+        selected = st.selectbox("Select an email to reply to:", email_subjects)
+        idx = email_subjects.index(selected)
+        selected_email = emails[idx]
+        st.markdown(f"**From:** {selected_email['from']}")
+        st.markdown(f"**Date:** {selected_email['date']}")
+        st.markdown("**Message:**")
+        st.text(selected_email['body'])
+        if st.button("Generate Reply for Email", type="primary", key="email_reply_btn"):
+            with st.spinner("Generating reply..."):
+                reply = get_reply(selected_email['body'])
+            st.markdown("**Your Reply:**")
+            st.markdown(reply)
+            st.text_area("Copy this reply", value=reply, height=300)
