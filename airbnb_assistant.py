@@ -175,7 +175,7 @@ with tab2:
             st.markdown(f"**Date:** {selected_email['date']}")
             st.markdown("**Message:**")
             st.text(selected_email['body'])
-            if st.button("Generate Reply", type="primary"):
+            if st.button("Generate Reply for Email", type="primary", key="email_reply_btn"):
                 with st.spinner("Generating reply..."):
                     reply = get_reply(selected_email['body'])
                 st.markdown("**Your Reply:**")
