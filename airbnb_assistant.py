@@ -167,14 +167,17 @@ with tab2:
             st.info("No Airbnb emails found.")
         else:
             st.success(f"Found {len(emails)} emails!")
-            for i, em in enumerate(emails):
-                with st.expander(f"📧 {em['subject']} — {em['date']}"):
-                    st.markdown(f"**From:** {em['from']}")
-                    st.markdown("**Message:**")
-                    st.text(em['body'])
-                    if st.button(f"Generate Reply for this email", key=f"reply_{i}"):
-                        with st.spinner("Generating reply..."):
-                            reply = get_reply(em['body'])
-                        st.markdown("**Your Reply:**")
-                        st.markdown(reply)
-                        st.text_area("Copy this reply", value=reply, height=300, key=f"copy_{i}")
+            email_subjects = [f"{i+1}. {em['subject']}" for i, em in enumerate(emails)]
+            selected = st.selectbox("Select an email to reply to:", email_subjects)
+            idx = email_subjects.index(selected)
+            selected_email = emails[idx]
+            st.markdown(f"**From:** {selected_email['from']}")
+            st.markdown(f"**Date:** {selected_email['date']}")
+            st.markdown("**Message:**")
+            st.text(selected_email['body'])
+            if st.button("Generate Reply", type="primary"):
+                with st.spinner("Generating reply..."):
+                    reply = get_reply(selected_email['body'])
+                st.markdown("**Your Reply:**")
+                st.markdown(reply)
+                st.text_area("Copy this reply", value=reply, height=300)
