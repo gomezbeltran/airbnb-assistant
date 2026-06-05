@@ -157,8 +157,8 @@ def get_new_emails():
     mail.login(GMAIL_ADDRESS.strip(), GMAIL_APP_PASSWORD.strip().replace(" ", ""))
     mail.select("inbox")
 
-    status1, messages1 = mail.search(None, 'SUBJECT', '"FW: Inquiry"')
-    status2, messages2 = mail.search(None, 'SUBJECT', '"FW: Reservation"')
+    status1, messages1 = mail.search(None, 'SUBJECT', '"FW: Inquiry for"')
+    status2, messages2 = mail.search(None, 'SUBJECT', '"FW: Reservation for"')
 
     ids1 = messages1[0].split() if messages1[0] else []
     ids2 = messages2[0].split() if messages2[0] else []
